@@ -8,7 +8,7 @@ export default defineConfig(({mode}) => {
   const env = loadEnv(mode, '.', '');
   return {
     plugins: [react(), tailwindcss(), viteSingleFile()],
-    base: '/1-stop-borneo-mockup/',
+    base: './', // Using './' makes all paths relative automatically!
     define: {
       'process.env.GEMINI_API_KEY': JSON.stringify(env.GEMINI_API_KEY),
     },
