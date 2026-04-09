@@ -6,70 +6,70 @@ const authors = [
   {
     id: 'chun-xing-wong',
     name: 'Chun Xing Wong',
-    image: '/author/author-1.jpg',
+    image: 'author-1.jpg',
     bio: 'A passionate wildlife photographer and conservationist dedicated to capturing the unseen beauty of Borneo\'s rainforests.',
     contributions: 'Pages 12-15: The Hidden Flora of Kinabalu, Pages 40-42: Macro Photography Guide'
   },
   {
     id: 'yulinda-wahyuni',
     name: 'Yulinda Wahyuni',
-    image: '/author/author-2.jpg',
+    image: 'author-2.jpg',
     bio: 'An expert in local indigenous cultures, Yulinda brings stories of the communities living in harmony with nature.',
     contributions: 'Pages 22-28: Voices of the Forest, Page 55: Traditional Handicrafts'
   },
   {
     id: 'mala-adi',
     name: 'Mala & Adi',
-    image: '/author/author-3.jpg',
+    image: 'author-3.jpg',
     bio: 'A dynamic duo specializing in marine biology and coastal conservation around the islands of Sabah.',
     contributions: 'Pages 30-35: The Coral Triangle, Pages 60-62: Sipadan Dive Guide'
   },
   {
     id: 'chrislyn-mujan',
     name: 'Chrislyn Mujan',
-    image: '/author/author-4.jpg',
+    image: 'author-4.jpg',
     bio: 'Environmental journalist covering the impact of climate change on Borneo\'s unique ecosystems.',
     contributions: 'Pages 18-21: Climate Challenges, Page 70: Future of the Rainforest'
   },
   {
     id: 'elvinis-gunong',
     name: 'Elvinis Gunong',
-    image: '/author/author-5.jpg',
+    image: 'author-5.jpg',
     bio: 'Botanist and researcher focusing on the medicinal plants used by traditional healers in Sarawak.',
     contributions: 'Pages 45-50: Healing Leaves, Page 82: Botanical Index'
   },
   {
     id: 'farid-farhan',
     name: 'Farid Farhan',
-    image: '/author/author-6.jpg',
+    image: 'author-6.jpg',
     bio: 'Wildlife tracker and guide with over 20 years of experience navigating the deep jungles of Kalimantan.',
     contributions: 'Pages 36-39: Tracking the Orangutan, Pages 75-78: Survival Skills'
   },
   {
     id: 'chua-yan-ping',
     name: 'Chua Yan Ping',
-    image: '/author/author-7.jpg',
+    image: 'author-7.jpg',
     bio: 'Avian enthusiast and ornithologist who has documented over 300 bird species across the island.',
     contributions: 'Pages 51-54: Wings of Wonder, Page 85: Birdwatching Hotspots'
   },
   {
     id: 'nathaline-ping',
     name: 'Nathaline Ping',
-    image: '/author/author-8.jpg',
+    image: 'author-8.jpg',
     bio: 'Conservation educator working with schools to inspire the next generation of environmental stewards.',
     contributions: 'Pages 63-66: Youth in Conservation, Page 90: Educational Resources'
   },
   {
     id: 'richard-thomas',
     name: 'Richard Thomas',
-    image: '/author/author-9.jpg',
+    image: 'author-9.jpg',
     bio: 'Adventure photographer and filmmaker capturing the adrenaline-pumping landscapes of Borneo.',
     contributions: 'Pages 8-11: The Pinnacles of Mulu, Pages 95-100: Visual Journey'
   },
   {
     id: 'darrysie-salapan',
     name: 'Darrysie Salapan',
-    image: '/author/author-10.jpg',
+    image: 'author-10.jpg',
     bio: 'Herpetologist fascinated by the diverse reptiles and amphibians thriving in the Bornean undergrowth.',
     contributions: 'Pages 29-32: Slithering Wonders, Page 88: Amphibian Night Walks'
   }
