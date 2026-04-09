@@ -53,7 +53,7 @@ export function BruneiPage() {
       <section className="relative h-[70vh] min-h-[600px] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img 
-            src="/Brunei.jpg" 
+            src="Brunei.jpg" 
             alt="Brunei Landscape" 
             className="w-full h-full object-cover"
             referrerPolicy="no-referrer"

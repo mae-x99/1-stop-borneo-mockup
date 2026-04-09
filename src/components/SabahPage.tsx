@@ -76,7 +76,7 @@ export function SabahPage() {
       <section className="relative h-[70vh] min-h-[600px] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img 
-            src="/Sabah.jpg" 
+            src="Sabah.jpg" 
             alt="Sabah Landscape" 
             className="w-full h-full object-cover"
             referrerPolicy="no-referrer"

@@ -62,7 +62,7 @@ export function OurStoryPage() {
       <section className="relative h-[60vh] min-h-[600px] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img 
-            src="/Rainforest.jpg" 
+            src="Rainforest.jpg" 
             alt="Borneo Conservation" 
             className="w-full h-full object-cover"
             referrerPolicy="no-referrer"

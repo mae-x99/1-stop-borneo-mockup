@@ -18,7 +18,7 @@ export function EBookPage() {
             <div className="relative bg-white p-6 rounded-[2rem] shadow-2xl border border-brand-header/5 overflow-hidden group">
               <div className="absolute top-0 right-0 w-24 h-24 bg-brand-highlight/10 rounded-bl-full -z-10 transition-transform duration-500 group-hover:scale-150" />
               <img 
-                src="https://picsum.photos/seed/borneo-book/800/1000" 
+                src="book-cover.png" 
                 alt="Borneo Guidebook Cover" 
                 className="w-full h-auto rounded-xl shadow-md object-cover aspect-[3/4]"
                 referrerPolicy="no-referrer"
