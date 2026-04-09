@@ -675,7 +675,7 @@ function App() {
           <section className="relative h-[85vh] flex items-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img 
-            src="./public/Mount-Kinabalu.jpg" 
+            src="/Mount-Kinabalu.jpg" 
             alt="Borneo Nature" 
             className="w-full h-full object-cover brightness-75"
             referrerPolicy="no-referrer"
