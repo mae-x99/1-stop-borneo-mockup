@@ -131,68 +131,6 @@ export function ArticlePage() {
         </div>
       </section>
 
-      {/* Everyone Is Welcome Here Banner (LGBTQ+ Focus - Bright & Beautiful) */}
-      <section className="py-32 relative overflow-hidden bg-gradient-to-br from-rose-50 via-white to-sky-50">
-        {/* Luminous Rainbow Glows */}
-        <div className="absolute top-0 left-0 w-[600px] h-[600px] bg-rose-300/30 rounded-full blur-[120px] pointer-events-none animate-pulse" style={{ animationDuration: '8s' }} />
-        <div className="absolute top-1/4 right-0 w-[600px] h-[600px] bg-amber-300/30 rounded-full blur-[120px] pointer-events-none animate-pulse" style={{ animationDuration: '10s' }} />
-        <div className="absolute bottom-1/4 left-1/4 w-[600px] h-[600px] bg-emerald-300/30 rounded-full blur-[120px] pointer-events-none animate-pulse" style={{ animationDuration: '9s' }} />
-        <div className="absolute bottom-0 right-1/4 w-[600px] h-[600px] bg-violet-300/30 rounded-full blur-[120px] pointer-events-none animate-pulse" style={{ animationDuration: '11s' }} />
-        
-        <div className="container-custom relative z-10">
-          <motion.div 
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            className="max-w-5xl mx-auto bg-white/60 border border-white shadow-[0_20px_60px_-15px_rgba(0,0,0,0.1)] rounded-[3rem] p-8 md:p-16 backdrop-blur-2xl relative overflow-hidden group"
-          >
-            {/* Rainbow Top Border */}
-            <div className="absolute top-0 left-0 w-full h-3 bg-gradient-to-r from-rose-400 via-orange-400 via-amber-400 via-emerald-400 via-sky-400 to-violet-400 opacity-100" />
-
-            <div className="flex flex-col items-center text-center mb-16 mt-4">
-              <motion.div 
-                animate={{ rotate: [-5, 10, -5] }}
-                transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
-                className="w-28 h-28 rounded-[2rem] bg-white flex items-center justify-center mb-8 shadow-2xl shadow-rose-200/60 border border-rose-50 text-7xl cursor-pointer hover:scale-110 transition-transform"
-              >
-                🏳️‍🌈
-              </motion.div>
-              <h2 className="text-4xl md:text-6xl font-serif text-slate-900 mb-8 flex items-center gap-4 justify-center tracking-tight">
-                Everyone Is Welcome Here
-              </h2>
-              {/* Vibrant Rainbow Line */}
-              <div className="w-32 h-1.5 bg-gradient-to-r from-rose-400 via-amber-400 via-emerald-400 to-violet-400 mx-auto rounded-full shadow-sm"></div>
-            </div>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20 text-slate-700 font-light leading-relaxed text-lg lg:text-xl">
-              <div className="space-y-8">
-                <p className="first-letter:text-7xl first-letter:font-serif first-letter:text-transparent first-letter:bg-clip-text first-letter:bg-gradient-to-br first-letter:from-rose-500 first-letter:to-violet-600 first-letter:mr-4 first-letter:float-left first-letter:leading-[0.85] first-letter:font-medium">
-                  Borneo is a stunningly beautiful and varied Island and its population wherever and whenever you meet them are generally very welcoming to LGBTQ+ travelers. It is also very easy to get around especially in Sabah, Sarawak and Brunei.
-                </p>
-                <p>
-                  The following places and cities are very used to tourism which adds to the rich tapestry of life; Kota Kinabalu, Kuching, Sepilok, Kinabatangan and Semporna. Travelling around is very easy and the public transport links reliable.
-                </p>
-              </div>
-              <div className="space-y-6 bg-white/80 p-8 md:p-10 rounded-[2rem] border border-white shadow-lg shadow-slate-200/50 relative overflow-hidden">
-                <div className="absolute top-0 left-0 w-1.5 h-full bg-gradient-to-b from-rose-400 via-amber-400 to-violet-400"></div>
-                <div className="flex items-start gap-5">
-                  <div className="bg-violet-100 p-2.5 rounded-full shrink-0 mt-1">
-                    <Info className="w-6 h-6 text-violet-600" />
-                  </div>
-                  <p className="text-slate-900 font-medium text-lg">
-                    Kalimantan and Brunei are a bit more conservative but they still welcome everyone and are well used to visitors from all walks of life. 
-                  </p>
-                </div>
-                <p className="pl-[4.25rem] text-slate-600 text-base">
-                  That said, a note of caution must be made in respect of places not mentioned above. Visitors to these places should be respectful of the populace and to their cultural differences as one should wherever you travel to in the world.
-                </p>
-              </div>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
       {/* Articles Section */}
       <section className="py-24">
         <div className="container-custom">

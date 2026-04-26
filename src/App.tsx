@@ -371,21 +371,17 @@ function App() {
   return (
     <div className="min-h-screen flex flex-col">
       {/* Top Bar */}
-      <div className="hidden lg:block bg-brand-light text-brand-header/60 py-1.5 border-b border-brand-header/[0.05]">
+      <div className="hidden lg:block bg-brand-light text-brand-header/60 py-1.5 border-b border-brand-header/10">
         <div className="container-custom flex justify-between items-center text-[9px] font-bold uppercase tracking-[0.25em]">
           <div className="flex items-center gap-8">
-            <a href="tel:+60123456789" className="flex items-center gap-2 hover:text-brand-highlight transition-all duration-300 group">
-              <Phone className="w-2.5 h-2.5 group-hover:scale-110 transition-transform" />
-              <span className="opacity-80 group-hover:opacity-100">+60 12-345 6789</span>
-            </a>
             <a href="mailto:info@1stopborneo.com" className="flex items-center gap-2 hover:text-brand-highlight transition-all duration-300 group">
               <Mail className="w-2.5 h-2.5 group-hover:scale-110 transition-transform" />
               <span className="opacity-80 group-hover:opacity-100">info@1stopborneo.com</span>
             </a>
           </div>
           <div className="flex items-center gap-5">
-            <span className="text-[8px] opacity-40">Follow our journey</span>
-            <div className="flex items-center gap-4 border-l border-brand-header/10 pl-5">
+            <span className="text-[8px]">Follow our journey</span>
+            <div className="flex items-center gap-4 border-l border-brand-header/20 pl-5">
               <a href="#" className="hover:text-brand-highlight transition-all duration-300 hover:-translate-y-0.5"><Facebook className="w-3 h-3" /></a>
               <a href="#" className="hover:text-brand-highlight transition-all duration-300 hover:-translate-y-0.5"><Instagram className="w-3 h-3" /></a>
             </div>
