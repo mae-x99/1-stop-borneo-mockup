@@ -51,6 +51,7 @@ import { BruneiPage } from './components/BruneiPage';
 import { OurStoryPage } from './components/OurStoryPage';
 import { ArticlePage } from './components/ArticlePage';
 import BorneoMap from './components/BorneoMap';
+import BorneoMap_old from './components/BorneoMap_old';
 
 const mapRegions = [
   {
@@ -102,114 +103,6 @@ const mapRegions = [
     ]
   }
 ];
-
-function InteractiveBorneoMap() {
-  const [hoveredRegion, setHoveredRegion] = React.useState<string | null>(null);
-
-  return (
-    <div className="relative w-full aspect-square bg-[#e8f0eb] rounded-[3rem] overflow-hidden border border-brand-header/10 group shadow-inner">
-      {/* Detailed Borneo Island Shape */}
-      <svg className="absolute inset-0 w-full h-full drop-shadow-2xl p-4" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid meet">
-        <defs>
-          <linearGradient id="borneo-grad" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#4F7942" />
-            <stop offset="100%" stopColor="#1A4731" />
-          </linearGradient>
-          <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
-            <feDropShadow dx="2" dy="4" stdDeviation="3" floodOpacity="0.15" />
-          </filter>
-        </defs>
-        <path 
-          d="M 25 55 L 20 53 L 15 56 L 14 62 L 16 68 L 20 74 L 28 80 L 35 83 L 45 85 L 52 90 L 58 92 L 64 88 L 68 82 L 72 75 L 76 65 L 80 55 L 83 45 L 84 38 L 82 34 L 87 31 L 88 28 L 85 25 L 82 18 L 76 12 L 72 8 L 66 11 L 62 15 L 58 19 L 55 22 L 52 25 L 48 30 L 42 36 L 36 42 L 30 48 Z" 
-          fill="url(#borneo-grad)" 
-          stroke="#2D6A4F" 
-          strokeWidth="0.5" 
-          strokeLinejoin="round"
-          filter="url(#shadow)"
-          className="transition-all duration-700 group-hover:scale-[1.02] origin-center"
-        />
-      </svg>
-
-      {/* Connecting Lines Overlay */}
-      <svg className="absolute inset-0 w-full h-full pointer-events-none z-10">
-        <AnimatePresence>
-          {mapRegions.map((region) => 
-            hoveredRegion === region.id && region.pins.map((pin, i) => (
-              <motion.line
-                key={`line-${pin.name}`}
-                initial={{ pathLength: 0, opacity: 0 }}
-                animate={{ pathLength: 1, opacity: 0.3 }}
-                exit={{ pathLength: 0, opacity: 0 }}
-                transition={{ duration: 0.3, delay: i * 0.05 }}
-                x1={`${region.x}%`}
-                y1={`${region.y}%`}
-                x2={`${pin.x}%`}
-                y2={`${pin.y}%`}
-                stroke="currentColor"
-                strokeWidth="1.5"
-                strokeDasharray="4 4"
-                className="text-brand-dark"
-              />
-            ))
-          )}
-        </AnimatePresence>
-      </svg>
-
-      {/* Regions and Pins */}
-      {mapRegions.map((region) => (
-        <div key={region.id}>
-          {/* Region Marker */}
-          <div 
-            className="absolute z-30 transform -translate-x-1/2 -translate-y-1/2 cursor-pointer"
-            style={{ left: `${region.x}%`, top: `${region.y}%` }}
-            onMouseEnter={() => setHoveredRegion(region.id)}
-            onMouseLeave={() => setHoveredRegion(null)}
-          >
-            <div className={`relative flex items-center justify-center w-14 h-14 rounded-full bg-white shadow-xl border-4 border-white transition-transform duration-300 ${hoveredRegion === region.id ? 'scale-110' : 'scale-100'}`}>
-              <div className={`w-full h-full rounded-full ${region.color} flex items-center justify-center text-white`}>
-                <MapPin className="w-5 h-5" />
-              </div>
-              
-              {/* Pulse effect */}
-              {hoveredRegion !== region.id && (
-                <div className={`absolute inset-0 rounded-full ${region.color} animate-ping opacity-20`} />
-              )}
-              
-              {/* Region Label */}
-              <div className={`absolute top-full mt-3 px-4 py-1.5 bg-brand-dark text-white text-[10px] font-bold tracking-widest uppercase rounded-full whitespace-nowrap transition-all duration-300 ${hoveredRegion === region.id ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-2 pointer-events-none'}`}>
-                {region.name}
-              </div>
-            </div>
-          </div>
-
-          {/* Pins for this region */}
-          <AnimatePresence>
-            {hoveredRegion === region.id && region.pins.map((pin, i) => (
-              <motion.div
-                key={pin.name}
-                initial={{ opacity: 0, scale: 0, x: '-50%', y: '-50%' }}
-                animate={{ opacity: 1, scale: 1, x: '-50%', y: '-50%' }}
-                exit={{ opacity: 0, scale: 0, x: '-50%', y: '-50%' }}
-                transition={{ delay: i * 0.05, type: 'spring', stiffness: 200, damping: 15 }}
-                className="absolute z-20 pointer-events-none"
-                style={{ left: `${pin.x}%`, top: `${pin.y}%` }}
-              >
-                <div className="flex flex-col items-center">
-                  <div className={`w-4 h-4 rounded-full ${region.color} shadow-[0_0_15px_rgba(0,0,0,0.3)] border-2 border-white flex items-center justify-center`}>
-                    <div className="w-1 h-1 bg-white rounded-full" />
-                  </div>
-                  <div className="mt-2 px-3 py-1 bg-white/95 backdrop-blur-sm text-brand-dark text-[9px] font-bold uppercase tracking-widest rounded-full shadow-lg whitespace-nowrap border border-brand-header/5">
-                    {pin.name}
-                  </div>
-                </div>
-              </motion.div>
-            ))}
-          </AnimatePresence>
-        </div>
-      ))}
-    </div>
-  );
-}
 
 const CategoryCarousel = () => {
   const [currentIndex, setCurrentIndex] = React.useState(0);
@@ -295,50 +188,50 @@ function App() {
     return () => window.removeEventListener('hashchange', handleHashChange);
   }, []);
 
-  const articles = [
-    {
-      title: "From Myth to Memory: Two Historic Orangutan Moments in Tawau Hills Park",
-      date: "November 23, 2025",
-      category: "Articles",
-      excerpt: "Recent evidence of orangutans in Tawau Hills Park! This including a firsthand sighting and a historic camera trap image that provides crucial data for conservation efforts...",
-      image: "https://picsum.photos/seed/orangutan/800/600"
-    },
-    {
-      title: "A Story of Ledumin Deraman: From POACHER turn Guide | PROTECTOR of Borneo’s Wildlife!",
-      date: "November 22, 2025",
-      category: "Articles",
-      excerpt: "From poacher to protector, Ledumin Deraman’s journey is nothing short of remarkable. Once hunting wildlife illegally, he now guides visitors through Borneo’s rainforests...",
-      image: "https://picsum.photos/seed/protector/800/600"
-    },
-    {
-      title: "My Life in Tawau Hills Park: The Story of a Lady Ecologist!",
-      date: "November 8, 2025",
-      category: "Articles",
-      excerpt: "The forest is my classroom, my home, and my inspiration! Every step reminds me why its beauty is worth protecting!",
-      image: "https://picsum.photos/seed/ecologist/800/600"
-    },
-    {
-      title: "The Founder’s Top 10 Wildlife of Borneo | 1StopBorneo Wildlife",
-      date: "October 26, 2025",
-      category: "Articles",
-      excerpt: "Discover Borneo’s most extraordinary wildlife through the eyes of 1StopBorneo Wildlife founder Shavez Cheem: From flying frogs to ghost cats.",
-      image: "https://picsum.photos/seed/wildlife/800/600"
-    },
-    {
-      title: "Mulu Pinnacles vs. Mt. Kinabalu",
-      date: "October 21, 2025",
-      category: "Articles",
-      excerpt: "Compare two of Borneo’s most iconic hiking adventures! Mulu Pinnacles in Sarawak and Mount Kinabalu in Sabah. Discover their unique trails...",
-      image: "https://picsum.photos/seed/hiking/800/600"
-    },
-    {
-      title: "160 WINGS OF WONDER IN TAWAU!",
-      date: "October 14, 2025",
-      category: "Articles",
-      excerpt: "Borneo Nature Travel Guide Discover the breathtaking beauty of Tawau’s avian paradise with ‘160 Wings of Wonder.’ This guide celebrates...",
-      image: "https://picsum.photos/seed/birds/800/600"
-    }
-  ];
+  // const articles = [
+  //   {
+  //     title: "From Myth to Memory: Two Historic Orangutan Moments in Tawau Hills Park",
+  //     date: "November 23, 2025",
+  //     category: "Articles",
+  //     excerpt: "Recent evidence of orangutans in Tawau Hills Park! This including a firsthand sighting and a historic camera trap image that provides crucial data for conservation efforts...",
+  //     image: "https://picsum.photos/seed/orangutan/800/600"
+  //   },
+  //   {
+  //     title: "A Story of Ledumin Deraman: From POACHER turn Guide | PROTECTOR of Borneo’s Wildlife!",
+  //     date: "November 22, 2025",
+  //     category: "Articles",
+  //     excerpt: "From poacher to protector, Ledumin Deraman’s journey is nothing short of remarkable. Once hunting wildlife illegally, he now guides visitors through Borneo’s rainforests...",
+  //     image: "https://picsum.photos/seed/protector/800/600"
+  //   },
+  //   {
+  //     title: "My Life in Tawau Hills Park: The Story of a Lady Ecologist!",
+  //     date: "November 8, 2025",
+  //     category: "Articles",
+  //     excerpt: "The forest is my classroom, my home, and my inspiration! Every step reminds me why its beauty is worth protecting!",
+  //     image: "https://picsum.photos/seed/ecologist/800/600"
+  //   },
+  //   {
+  //     title: "The Founder’s Top 10 Wildlife of Borneo | 1StopBorneo Wildlife",
+  //     date: "October 26, 2025",
+  //     category: "Articles",
+  //     excerpt: "Discover Borneo’s most extraordinary wildlife through the eyes of 1StopBorneo Wildlife founder Shavez Cheem: From flying frogs to ghost cats.",
+  //     image: "https://picsum.photos/seed/wildlife/800/600"
+  //   },
+  //   {
+  //     title: "Mulu Pinnacles vs. Mt. Kinabalu",
+  //     date: "October 21, 2025",
+  //     category: "Articles",
+  //     excerpt: "Compare two of Borneo’s most iconic hiking adventures! Mulu Pinnacles in Sarawak and Mount Kinabalu in Sabah. Discover their unique trails...",
+  //     image: "https://picsum.photos/seed/hiking/800/600"
+  //   },
+  //   {
+  //     title: "160 WINGS OF WONDER IN TAWAU!",
+  //     date: "October 14, 2025",
+  //     category: "Articles",
+  //     excerpt: "Borneo Nature Travel Guide Discover the breathtaking beauty of Tawau’s avian paradise with ‘160 Wings of Wonder.’ This guide celebrates...",
+  //     image: "https://picsum.photos/seed/birds/800/600"
+  //   }
+  // ];
 
   const conservationTrips = [
     {
@@ -734,6 +627,10 @@ function App() {
 
             <div className="">
               <BorneoMap/>
+            </div>
+
+            <div className="">
+              <BorneoMap_old/>
             </div>
 
           </div>
