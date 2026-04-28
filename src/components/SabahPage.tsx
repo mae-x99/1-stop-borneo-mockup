@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { MapPin, Compass, Leaf, Mountain, Waves } from 'lucide-react';
+import SabahMap from './SabahMap';
 
 export function SabahPage() {
   const regions = [
@@ -73,7 +74,7 @@ export function SabahPage() {
   return (
     <div className="bg-[#f8fcf9] min-h-screen">
       {/* Hero Section */}
-      <section className="relative h-[70vh] min-h-[600px] flex items-center justify-center overflow-hidden">
+      <section className="relative h-[400px] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img 
             src="Sabah.jpg" 
@@ -84,7 +85,7 @@ export function SabahPage() {
           <div className="absolute inset-0 bg-black/20" />
         </div>
         
-        <div className="container-custom relative z-10 text-center mt-20">
+        <div className="container-custom relative z-10 text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -105,7 +106,7 @@ export function SabahPage() {
             viewport={{ once: true }}
             className="text-2xl md:text-4xl font-serif text-brand-header leading-relaxed mb-8"
           >
-            Borneo’s top destination for wildlife and nature lovers. Home to iconic spots like <span className="italic text-brand-highlight">Kinabalu Park</span> and the biodiverse <span className="italic text-brand-highlight">Danum Valley</span>.
+            Borneo’s top destination for wildlife and nature lovers. Home to iconic spots like <span className="italic text-brand-highlight">Kinabalu Park Sayap</span> and the biodiverse <span className="italic text-brand-highlight">Tawau Hills Park</span>.
           </motion.p>
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
@@ -116,6 +117,10 @@ export function SabahPage() {
           >
             Visitors can explore lush rainforests, see orangutans in the wild, and spot proboscis monkeys along the Kinabatangan River. Sabah also features stunning islands like Sipadan and Mabul, known for vibrant marine life. With rich biodiversity and immersive experiences, Sabah is a must-visit for nature seekers.
           </motion.p>
+        </div>
+
+        <div className="">
+          <SabahMap/>
         </div>
       </section>
 
