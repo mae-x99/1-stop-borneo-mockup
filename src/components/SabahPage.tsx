@@ -127,6 +127,13 @@ export function SabahPage() {
       {/* Regions - Alternating Editorial Layout */}
       <section className="py-32 bg-[#f8fcf9]">
         <div className="container-custom">
+          <div className="text-center mb-20">
+            <span className="inline-block px-4 py-1.5 bg-brand-header/5 text-brand-highlight text-[10px] text-center font-bold uppercase tracking-[0.3em] rounded-full mb-6">Directory</span>
+            <h2 className="text-4xl md:text-5xl font-serif text-brand-header">
+              Sabah Destinations
+            </h2>
+          </div>
+          
           <div className="max-w-6xl mx-auto flex flex-col gap-32">
             {regions.map((region, index) => (
               <motion.div 

@@ -80,7 +80,8 @@ export function OurStoryPage() {
             <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif text-white mb-6 leading-none tracking-tight drop-shadow-xl">Our Story & Mission</h1>
           </motion.div>
         </div>
-      </section>      {/* Masterclass Editorial Layout for About Us & Inclusivity */}
+      </section>      
+      
       <section className="bg-slate-50 border-y border-slate-200 relative overflow-hidden">
         {/* Subtle Organic Wave/River Pattern Background */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">

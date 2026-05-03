@@ -309,7 +309,7 @@ function App() {
           {/* Navigation & Search Container */}
           <div className="flex items-center gap-10">
             {/* Desktop Menu */}
-            <div className="hidden lg:flex items-center gap-10 font-bold text-[10px] uppercase tracking-[0.25em] text-brand-header/50">
+            <div className="hidden lg:flex items-center gap-8 font-bold text-[10px] uppercase tracking-[0.25em] text-brand-header/50">
               <a href="#" className="hover:text-brand-header transition-all duration-500 relative group py-1">
                 Home
                 <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-[1px] bg-brand-highlight transition-all duration-500 group-hover:w-full"></span>

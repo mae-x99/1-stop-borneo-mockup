@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { MapPin, Compass, Leaf, Mountain, Waves, Map } from 'lucide-react';
+import SarawakMap from './SarawakMap';
 
 export function SarawakPage() {
   // Grouping the flat list of destinations into logical categories for a better editorial layout
@@ -41,7 +42,7 @@ export function SarawakPage() {
   return (
     <div className="bg-[#f8fcf9] min-h-screen">
       {/* Hero Section */}
-      <section className="relative h-[70vh] min-h-[600px] flex items-center justify-center overflow-hidden">
+      <section className="relative h-[400px] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img 
             src="Sarawak.jpg" 
@@ -85,13 +86,17 @@ export function SarawakPage() {
             Despite this, Sarawak offers some of the most adventurous experiences in Southeast Asia for travelers, with many off-the-beaten-track destinations waiting to be explored. This guidebook highlights accessible and stunning spots like Tanjung Datu, Long Banga’s coffee park, Ba’kelalan, and Twinhill Maludam, encouraging you to discover the hidden wonders of Sarawak.
           </motion.p>
         </div>
+
+        <div className="">
+          <SarawakMap/>
+        </div>
       </section>
 
       {/* Regions - Alternating Editorial Layout */}
       <section className="py-32 bg-[#f8fcf9]">
         <div className="container-custom">
           <div className="text-center mb-20">
-            <span className="text-brand-highlight font-bold text-[10px] uppercase tracking-[0.4em] mb-4 block">Directory</span>
+            <span className="inline-block px-4 py-1.5 bg-brand-header/5 text-brand-highlight text-[10px] text-center font-bold uppercase tracking-[0.3em] rounded-full mb-6">Directory</span>
             <h2 className="text-4xl md:text-5xl font-serif text-brand-header">
               Sarawak Destinations
             </h2>

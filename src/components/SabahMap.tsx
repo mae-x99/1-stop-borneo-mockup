@@ -673,14 +673,17 @@ const styles: Record<string, React.CSSProperties> = {
     border: '1px solid rgba(0,0,0,0.05)',
     boxShadow: '0 4px 20px rgba(0,0,0,0.03)',
     flex: '1 1 auto',
-    height: '100%',
-    boxSizing: 'border-box'
+    boxSizing: 'border-box',
+    maxHeight: '580px'
   },
   legendSet: {
     display: 'grid',
     gridTemplateColumns: 'repeat(auto-fill, minmax(130px, 1fr))',
     columnGap: '8px',
     rowGap: '2px',
+    overflowY: 'auto',
+    paddingRight: '8px',
+    alignContent: 'start'
   },
   legendLabel: {
     gridColumn: '1 / -1',
@@ -712,7 +715,10 @@ const styles: Record<string, React.CSSProperties> = {
   legendText: {
     fontSize: '0.85rem',
     color: '#475569',
-    transition: 'font-weight 0.2s'
+    transition: 'font-weight 0.2s',
+    whiteSpace: 'nowrap',
+    overflow: 'hidden',
+    textOverflow: 'ellipsis'
   },
   infoSection: {
     marginTop: '1.4rem',
@@ -723,7 +729,8 @@ const styles: Record<string, React.CSSProperties> = {
     border: '1px solid #e2e8f0',
     boxShadow: 'inset 0 2px 4px rgba(255,255,255,0.7)',
     position: 'relative',
-    overflow: 'hidden'
+    overflow: 'hidden',
+    flexShrink: 0
   },
   infoTitle: {
     display: 'flex',
