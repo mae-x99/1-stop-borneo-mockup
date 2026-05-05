@@ -288,8 +288,14 @@ const regions: Region[] = [
   }
 ];
 
-const SabahMap: React.FC = () => {
-  const [activeRegion, setActiveRegion] = useState<string | null>(null);
+interface SabahMapProps {
+  onDistrictClick?: (districtId: string) => void;
+  activeDistrict?: string | null;
+}
+
+const SabahMap: React.FC<SabahMapProps> = ({ onDistrictClick, activeDistrict }) => {
+  const [hoveredRegion, setHoveredRegion] = useState<string | null>(null);
+  const activeRegion = hoveredRegion || activeDistrict;
   const [tooltipPositions, setTooltipPositions] = useState<Record<string, TooltipPosition>>({});
   const [cursorPos, setCursorPos] = useState({ x: 0, y: 0 });
   const [showCursor, setShowCursor] = useState(false);
@@ -326,21 +332,27 @@ const SabahMap: React.FC = () => {
   }, []);
 
   const activateRegion = (id: string) => {
-    setActiveRegion(id);
+    setHoveredRegion(id);
     setShowCursor(true);
   };
 
   const deactivateRegion = () => {
-    setActiveRegion(null);
+    setHoveredRegion(null);
     setShowCursor(false);
   };
 
   const activateRegionLegend = (id: string) => {
-    setActiveRegion(id);
+    setHoveredRegion(id);
   };
 
   const deactivateRegionLegend = () => {
-    setActiveRegion(null);
+    setHoveredRegion(null);
+  };
+
+  const handleRegionClick = (id: string) => {
+    if (onDistrictClick) {
+      onDistrictClick(id);
+    }
   };
 
   return (
@@ -407,6 +419,7 @@ const SabahMap: React.FC = () => {
                     }}
                     onMouseEnter={() => activateRegion(region.id)}
                     onMouseLeave={deactivateRegion}
+                    onClick={() => handleRegionClick(region.id)}
                   />
                 ))}
               </svg>
@@ -455,6 +468,7 @@ const SabahMap: React.FC = () => {
                       className="legend-row"
                       onMouseEnter={() => activateRegionLegend(region.id)}
                       onMouseLeave={deactivateRegionLegend}
+                      onClick={() => handleRegionClick(region.id)}
                       data-target={`region-${region.id}`}
                       style={{
                         ...styles.legendRow,
