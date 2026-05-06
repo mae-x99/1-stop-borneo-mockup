@@ -50,8 +50,9 @@ import { KalimantanPage } from './components/KalimantanPage';
 import { BruneiPage } from './components/BruneiPage';
 import { OurStoryPage } from './components/OurStoryPage';
 import { ArticlePage } from './components/ArticlePage';
+import { KinabaluParkSayapPage } from './components/KinabaluParkSayapPage';
+import { KotaBeludPage } from './components/KotaBeludPage';
 import BorneoMap from './components/BorneoMap';
-import BorneoMap_old from './components/BorneoMap_old';
 
 const mapRegions = [
   {
@@ -307,9 +308,9 @@ function App() {
           </div>
 
           {/* Navigation & Search Container */}
-          <div className="flex items-center gap-10">
+          <div className="flex items-center gap-4 xl:gap-8 2xl:gap-10">
             {/* Desktop Menu */}
-            <div className="hidden lg:flex items-center gap-8 font-bold text-[10px] uppercase tracking-[0.25em] text-brand-header/50">
+            <div className="hidden lg:flex items-center gap-4 xl:gap-8 font-bold text-[10px] uppercase tracking-[0.25em] text-brand-header/50">
               <a href="#" className="hover:text-brand-header transition-all duration-500 relative group py-1">
                 Home
                 <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-[1px] bg-brand-highlight transition-all duration-500 group-hover:w-full"></span>
@@ -558,6 +559,10 @@ function App() {
         <KalimantanPage />
       ) : currentHash === '#brunei' ? (
         <BruneiPage />
+      ) : currentHash === '#kota-belud' ? (
+        <KotaBeludPage />
+      ) : currentHash === '#kinabalu-park-sayap' ? (
+        <KinabaluParkSayapPage />
       ) : (
         <>
           {/* Hero Section */}
@@ -627,10 +632,6 @@ function App() {
 
             <div className="">
               <BorneoMap/>
-            </div>
-
-            <div className="">
-              <BorneoMap_old/>
             </div>
 
           </div>
@@ -994,9 +995,9 @@ function App() {
                       {trip.description}
                     </p>
                     <div className="pt-4 mt-auto">
-                      <button className="w-full py-4 bg-brand-header text-white rounded-full font-bold text-[10px] tracking-[0.3em] hover:bg-brand-highlight transition-all shadow-md hover:shadow-xl">
+                      <a href={trip.title === 'Kinabalu Park Sayap' ? '#kinabalu-park-sayap' : '#'} className="block w-full text-center py-4 bg-brand-header text-white rounded-full font-bold text-[10px] tracking-[0.3em] hover:bg-brand-highlight transition-all shadow-md hover:shadow-xl">
                         VIEW ITINERARY
-                      </button>
+                      </a>
                     </div>
                   </div>
                 </motion.div>
