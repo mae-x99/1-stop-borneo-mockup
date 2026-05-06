@@ -4,14 +4,15 @@ import { MapPin, Compass, Leaf, Mountain, Waves } from 'lucide-react';
 import SabahMap from './SabahMap';
 
 export function SabahPage() {
+  // 27 Districts mapped to their respective regions/divisions.
   const destinations = [
     { districtId: "beaufort", title: "Beaufort", category: "Central & Interior", image: "https://picsum.photos/seed/beaufort-sabah/800/600", excerpt: "Famous for its authentic Padas river white water rafting and the historic Beaufort railway station." },
     { districtId: "beluran", title: "Beluran", category: "East Coast & Wildlife", image: "https://picsum.photos/seed/beluran/800/600", excerpt: "A serene coastal district famous for giant river prawns and unspoiled riverine ecosystems." },
     { districtId: "kalabakan", title: "Kalabakan", category: "South East & Marine", image: "https://picsum.photos/seed/kalabakan/800/600", excerpt: "A lush, newly established district known for historical sites and deep rainforest explorations." },
     { districtId: "keningau", title: "Keningau", category: "Central & Interior", image: "https://picsum.photos/seed/keningau/800/600", excerpt: "The largest town in the Interior Division, celebrated for the Oath Stone and rich agricultural heritage." },
     { districtId: "kinabatangan", title: "Kinabatangan", category: "East Coast & Wildlife", image: "https://picsum.photos/seed/kinabatangan/800/600", excerpt: "World-renowned for the Kinabatangan River, offering the best wildlife viewing in Southeast Asia." },
-    { districtId: "kinabalu-park-sayap", title: "Kinabalu Park Sayap", category: "West Coast & Islands", image: "https://picsum.photos/seed/sayap2/800/600", excerpt: "Discover an off-the-beaten-path adventure hosted by a welcoming Dusun-ethnic family. Explore montane birds, frogs, and insects.", link: "#kinabalu-park-sayap" },
-    { districtId: "kota-belud", title: "Kota Belud", category: "West Coast & Islands", image: "https://picsum.photos/seed/kotabelud/800/600", excerpt: "The 'Cowboy Town of the East', famous for its Sunday market (Tamu) and gateway to Mantanani Islands." },
+    { districtId: "kota-belud", title: "Kota Belud", category: "West Coast & Islands", image: "https://picsum.photos/seed/kotabelud/800/600", excerpt: "The 'Cowboy Town of the East', famous for its Sunday market (Tamu) and gateway to Mantanani Islands.", link: "#kota-belud" },
+    { districtId: "kota-belud", title: "Kinabalu Park Sayap", category: "West Coast & Islands", image: "https://picsum.photos/seed/sayap2/800/600", excerpt: "Discover an off-the-beaten-path adventure hosted by a welcoming Dusun-ethnic family. Explore montane birds, frogs, and insects.", link: "#kinabalu-park-sayap" },
     { districtId: "kota-kinabalu", title: "Kota Kinabalu", category: "West Coast & Islands", image: "https://picsum.photos/seed/kk/800/600", excerpt: "The vibrant state capital, blending bustling markets, stunning coastal sunsets, and rich heritage." },
     { districtId: "kota-marudu", title: "Kota Marudu", category: "Northern Region", image: "https://picsum.photos/seed/kotamarudu/800/600", excerpt: "An agricultural hub featuring the incredible Sorinsim Waterfall and majestic Mount Tambuyukon." },
     { districtId: "kuala-penyu", title: "Kuala Penyu", category: "Central & Interior", image: "https://picsum.photos/seed/kualapenyu/800/600", excerpt: "Known for the serene Tempurung Beach and as the gateway to the beautiful Pulau Tiga (Survivor Island)." },
@@ -34,6 +35,11 @@ export function SabahPage() {
     { districtId: "tongod", title: "Tongod", category: "East Coast & Wildlife", image: "https://picsum.photos/seed/tongod/800/600", excerpt: "The largest district in Sabah, located in the deep interior with immense biodiversity and wildlife." },
     { districtId: "tuaran", title: "Tuaran", category: "West Coast & Islands", image: "https://picsum.photos/seed/tuaran/800/600", excerpt: "Famous for the 9-story Chinese pagoda, Mengkabong water village, and iconic Tuaran noodles." },
   ];
+
+  // Helper for generating pretty district names
+  const getDistrictName = (id: string) => {
+    return id.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
+  };
 
   const categories = [
     { name: "Northern Region", icon: <Waves className="w-4 h-4" /> },
@@ -190,7 +196,8 @@ export function SabahPage() {
                   
                   {categories.map((cat) => {
                     const isActive = activeCategory === cat.name;
-                    const catDests = destinations.filter(d => d.category === cat.name);
+                    // Deduplicate districts so the sidebar only shows unique districts under each category
+                    const catDistricts = Array.from(new Set(destinations.filter(d => d.category === cat.name).map(d => d.districtId)));
                     
                     return (
                       <div key={cat.name} className="flex flex-col gap-1">
@@ -209,28 +216,49 @@ export function SabahPage() {
                           <span className={`px-2 py-0.5 rounded-full text-[10px] ${
                             isActive && !activeDistrictId ? 'bg-white/20' : 'bg-brand-header/5'
                           }`}>
-                            {catDests.length}
+                            {catDistricts.length}
                           </span>
                         </button>
                         
                         {isActive && (
                           <div className="flex flex-col pl-11 pr-2 py-2 gap-1 relative before:absolute before:left-[1.35rem] before:top-2 before:bottom-2 before:w-[1px] before:bg-brand-header/10">
-                            {catDests.map(d => (
-                              <button
-                                key={d.districtId}
-                                onClick={() => handleMapDistrictClick(d.districtId)}
-                                className={`text-left text-xs py-2 transition-colors relative ${
-                                  activeDistrictId === d.districtId 
-                                    ? 'text-brand-highlight font-bold' 
-                                    : 'text-brand-header/50 hover:text-brand-header'
-                                }`}
-                              >
-                                {activeDistrictId === d.districtId && (
-                                  <span className="absolute -left-[29px] top-1/2 -translate-y-1/2 w-1.5 h-1.5 rounded-full bg-brand-highlight" />
-                                )}
-                                {d.title}
-                              </button>
-                            ))}
+                            {catDistricts.map(districtId => {
+                              const districtDestinations = destinations.filter(d => d.districtId === districtId);
+                              const isDistrictActive = activeDistrictId === districtId;
+                              return (
+                                <div key={districtId} className="flex flex-col gap-1">
+                                  <button
+                                    onClick={() => handleMapDistrictClick(districtId)}
+                                    className={`text-left text-xs py-2 transition-colors relative flex items-center justify-between ${
+                                      isDistrictActive 
+                                        ? 'text-brand-highlight font-bold' 
+                                        : 'text-brand-header/50 hover:text-brand-header'
+                                    }`}
+                                  >
+                                    <span className="relative">
+                                      {isDistrictActive && (
+                                        <span className="absolute -left-[29px] top-1/2 -translate-y-1/2 w-1.5 h-1.5 rounded-full bg-brand-highlight" />
+                                      )}
+                                      {getDistrictName(districtId)}
+                                    </span>
+                                  </button>
+                                  
+                                  {isDistrictActive && districtDestinations.length > 1 && (
+                                    <div className="flex flex-col pl-4 gap-2 py-2 mb-2 relative before:absolute before:left-[-1px] before:top-2 before:bottom-2 before:w-[1px] before:bg-brand-highlight/20 border-l border-brand-header/5">
+                                      {districtDestinations.map(d => (
+                                        <a 
+                                          key={d.title}
+                                          href={d.link || '#'}
+                                          className="text-[11px] text-brand-header/60 hover:text-brand-highlight transition-colors py-1 pl-2 block"
+                                        >
+                                          • {d.title}
+                                        </a>
+                                      ))}
+                                    </div>
+                                  )}
+                                </div>
+                              );
+                            })}
                           </div>
                         )}
                       </div>
