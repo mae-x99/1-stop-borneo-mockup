@@ -285,19 +285,25 @@ export function KinabaluParkSayapPage() {
                 </div>
 
                 <div className="mb-16">
-                  <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+                  <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-12">
                     <div>
                       <div className="flex items-center gap-4 mb-4">
                         <span className="w-12 h-px bg-brand-highlight"></span>
                         <span className="text-brand-highlight font-bold tracking-[0.2em] uppercase text-[10px]">Activities</span>
                       </div>
-                      <h2 className="text-3xl md:text-4xl font-serif m-0 mb-3 tracking-tight">Things To Do</h2>
+
+                      <h2 className="text-3xl md:text-4xl font-serif m-0 mb-3 tracking-tight">
+                        Things To Do
+                      </h2>
                     </div>
-                    <p className="text-brand-header/60 text-base max-w-md m-0">Experience the lush biodiversity of Kinabalu Park through immersive, guided activities.</p>
+
+                    <p className="text-brand-header/60 text-base max-w-md m-0 md:ml-auto md:text-right flex items-center h-full">
+                      Experience the lush biodiversity of Kinabalu Park through immersive, guided activities.
+                    </p>
                   </div>
                   
                   <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 lg:gap-6">
-                    <div className="group rounded-[2.5rem] overflow-hidden shadow-sm hover:shadow-xl hover:border-brand-moss/30 transition-all duration-500 border border-brand-header/5 relative flex flex-col bg-[#f8fcf9]">
+                    <div className="group rounded-[2.5rem] overflow-hidden bg-gradient-to-br from-[#f2f7f4] to-white border border-brand-moss/10 shadow-md hover:-translate-y-1 hover:shadow-xl hover:border-brand-moss/30 transition-all duration-500 relative flex flex-col">
                       <div className="relative z-10 p-6 md:p-8 text-brand-header flex flex-col justify-between h-full">
                         <div>
                           <div className="w-12 h-12 rounded-[1rem] bg-white border border-brand-header/5 flex items-center justify-center text-brand-moss mb-6 transform group-hover:scale-110 transition-transform duration-500 shadow-sm">
@@ -310,14 +316,14 @@ export function KinabaluParkSayapPage() {
                            <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-amber-50 border border-amber-200 text-amber-600 text-[10px] font-bold uppercase tracking-widest rounded-full">
                              <Clock className="w-3 h-3" /> 2-3 Hours
                            </span>
-                           <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-brand-header/5 border border-brand-header/10 text-brand-header/80 text-[10px] font-bold uppercase tracking-widest rounded-full">
+                           <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-emerald-100 border border-brand-header/10 text-brand-header/80 text-[10px] font-bold uppercase tracking-widest rounded-full">
                              Easy
                            </span>
                         </div>
                       </div>
                     </div>
 
-                    <div className="group rounded-[2.5rem] overflow-hidden shadow-sm hover:shadow-xl hover:border-brand-moss/30 transition-all duration-500 border border-brand-header/5 relative flex flex-col bg-[#f8fcf9]">
+                    <div className="group rounded-[2.5rem] overflow-hidden bg-gradient-to-br from-[#f2f7f4] to-white border border-brand-moss/10 shadow-md hover:-translate-y-1 hover:shadow-xl hover:border-brand-moss/30 transition-all duration-500 relative flex flex-col">
                       <div className="relative z-10 p-6 md:p-8 text-brand-header flex flex-col justify-between h-full">
                         <div>
                           <div className="w-12 h-12 rounded-[1rem] bg-white border border-brand-header/5 flex items-center justify-center text-brand-moss mb-6 transform group-hover:scale-110 transition-transform duration-500 shadow-sm">
@@ -334,7 +340,7 @@ export function KinabaluParkSayapPage() {
                       </div>
                     </div>
 
-                    <div className="group rounded-[2.5rem] overflow-hidden shadow-sm hover:shadow-xl hover:border-brand-moss/30 transition-all duration-500 border border-brand-header/5 relative flex flex-col bg-[#f8fcf9]">
+                    <div className="group rounded-[2.5rem] overflow-hidden bg-gradient-to-br from-[#f2f7f4] to-white border border-brand-moss/10 shadow-md hover:-translate-y-1 hover:shadow-xl hover:border-brand-moss/30 transition-all duration-500 relative flex flex-col">
                       <div className="relative z-10 p-6 md:p-8 text-brand-header flex flex-col justify-between h-full">
                         <div>
                           <div className="w-12 h-12 rounded-[1rem] bg-white border border-brand-header/5 flex items-center justify-center text-brand-moss mb-6 transform group-hover:scale-110 transition-transform duration-500 shadow-sm">
@@ -344,7 +350,7 @@ export function KinabaluParkSayapPage() {
                           <p className="text-brand-header/70 text-sm leading-relaxed m-0 font-light mb-6">Scenic campsite that can get chilly due to the elevation. Perfect for true nature lovers seeking silence.</p>
                         </div>
                         <div className="flex flex-wrap gap-2">
-                           <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-brand-header/5 border border-brand-header/10 text-brand-header/80 text-[10px] font-bold uppercase tracking-widest rounded-full">
+                           <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-brand-header border border-brand-header/10 text-white text-[10px] font-bold uppercase tracking-widest rounded-full">
                              Overnight
                            </span>
                         </div>
