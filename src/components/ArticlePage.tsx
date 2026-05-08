@@ -1,18 +1,19 @@
 import React, { useState } from 'react';
 import { motion } from 'motion/react';
-import { Search, ChevronRight, Clock, ArrowRight, BookOpen, Map, Camera, Home, Sparkles, Leaf, Star, Heart, Info } from 'lucide-react';
+import { Search, ChevronRight, Clock, ArrowRight, BookOpen, Map, Camera, Home, Sparkles, Leaf, Star, Heart, Info, Utensils, MessageSquare } from 'lucide-react';
 
 export function ArticlePage() {
   const [activeCategory, setActiveCategory] = useState('All');
 
   const categories = [
     { name: "Planning & Essentials", icon: <BookOpen className="w-4 h-4" /> },
-    { name: "Destinations", icon: <Map className="w-4 h-4" /> },
     { name: "Media & Tech", icon: <Camera className="w-4 h-4" /> },
     { name: "Accommodation & Services", icon: <Home className="w-4 h-4" /> },
-    { name: "Unique Experiences", icon: <Sparkles className="w-4 h-4" /> },
+    { name: "F&B & Entertainment", icon: <Utensils className="w-4 h-4" /> },
+    { name: "Wellness", icon: <Heart className="w-4 h-4" /> },
+    { name: "Unique Experiences & Culture", icon: <Sparkles className="w-4 h-4" /> },
     { name: "Wildlife & Nature", icon: <Leaf className="w-4 h-4" /> },
-    { name: "Special Topics", icon: <Star className="w-4 h-4" /> }
+    { name: "Opinion", icon: <MessageSquare className="w-4 h-4" /> }
   ];
 
   // Dummy articles representing Informative, Descriptive, and Listicle types
@@ -37,7 +38,7 @@ export function ArticlePage() {
     },
     {
       title: "Chasing Sunsets: The Magic of Kota Kinabalu's Evenings",
-      category: "Unique Experiences",
+      category: "Unique Experiences & Culture",
       image: "https://picsum.photos/seed/kota-kinabalu-sunset/800/600",
       excerpt: "Experience the breathtaking colors of the Bornean sky as the sun dips below the South China Sea. A visual journey through the best sunset spots.",
       readTime: "4 min read",
@@ -46,7 +47,7 @@ export function ArticlePage() {
     },
     {
       title: "Conservation Efforts: Protecting the Pangolin",
-      category: "Special Topics",
+      category: "Opinion",
       image: "https://picsum.photos/seed/pangolin-conservation/800/600",
       excerpt: "Learn about the ongoing initiatives to save the world's most trafficked mammal in the heart of Borneo, and how you can help.",
       readTime: "7 min read",
@@ -55,7 +56,7 @@ export function ArticlePage() {
     },
     {
       title: "A Guide to the Majestic Canopy Walks of Sabah",
-      category: "Unique Experiences",
+      category: "Unique Experiences & Culture",
       image: "https://picsum.photos/seed/canopy-walk/800/600",
       excerpt: "Walk among the treetops and experience the rainforest from a completely different perspective. Here is what to expect from Sabah's suspended bridges.",
       readTime: "5 min read",
@@ -82,7 +83,7 @@ export function ArticlePage() {
     },
     {
       title: "Woman Travel Alone: Navigating Borneo Safely",
-      category: "Special Topics",
+      category: "Opinion",
       image: "https://picsum.photos/seed/solo-travel/800/600",
       excerpt: "Empowering tips, safety advice, and personal insights for solo female travelers exploring the wonders of Sabah, Sarawak, and Brunei.",
       readTime: "9 min read",
@@ -91,7 +92,7 @@ export function ArticlePage() {
     },
     {
       title: "Diving into the Depths: Sipadan's Marine Life",
-      category: "Destinations",
+      category: "Wildlife & Nature",
       image: "https://picsum.photos/seed/sipadan-diving/800/600",
       excerpt: "An immersive look at one of the world's top diving destinations. From swirling tornado schools of barracudas to gentle sea turtles.",
       readTime: "6 min read",
@@ -152,34 +153,34 @@ export function ArticlePage() {
                 <div className="flex flex-col gap-2">
                   <button
                     onClick={() => setActiveCategory('All')}
-                    className={`flex items-center justify-between p-3 rounded-xl transition-all text-sm font-medium ${
+                    className={`w-full flex items-center text-left justify-between p-3 rounded-xl transition-all text-sm font-medium ${
                       activeCategory === 'All' 
                         ? 'bg-brand-header text-white shadow-md' 
                         : 'text-brand-header/70 hover:bg-white hover:text-brand-header hover:shadow-sm'
                     }`}
                   >
                     <div className="flex items-center gap-3">
-                      <BookOpen className="w-4 h-4" />
-                      All Articles
+                      <BookOpen className="w-4 h-4 shrink-0" />
+                      <span>All Articles</span>
                     </div>
-                    {activeCategory === 'All' && <ChevronRight className="w-4 h-4" />}
+                    {activeCategory === 'All' && <ChevronRight className="w-4 h-4 shrink-0" />}
                   </button>
                   
                   {categories.map((cat) => (
                     <button
                       key={cat.name}
                       onClick={() => setActiveCategory(cat.name)}
-                      className={`flex items-center justify-between p-3 rounded-xl transition-all text-sm font-medium ${
+                      className={`w-full flex items-center text-left justify-between p-3 rounded-xl transition-all text-sm font-medium ${
                         activeCategory === cat.name 
                           ? 'bg-brand-header text-white shadow-md' 
                           : 'text-brand-header/70 hover:bg-white hover:text-brand-header hover:shadow-sm'
                       }`}
                     >
                       <div className="flex items-center gap-3">
-                        {cat.icon}
-                        {cat.name}
+                        <span className="shrink-0">{cat.icon}</span>
+                        <span>{cat.name}</span>
                       </div>
-                      {activeCategory === cat.name && <ChevronRight className="w-4 h-4" />}
+                      {activeCategory === cat.name && <ChevronRight className="w-4 h-4 shrink-0" />}
                     </button>
                   ))}
                 </div>
