@@ -983,7 +983,7 @@ function App() {
                       referrerPolicy="no-referrer"
                     />
                     <div className="absolute top-6 right-6 bg-brand-highlight px-4 py-2 rounded-full shadow-lg text-white">
-                      <p className="text-[8px] font-bold uppercase tracking-widest">Upcoming Trip</p>
+                      <p className="text-[8px] font-bold uppercase tracking-widest">Book A Tour</p>
                     </div>
                   </div>
                   <div className="p-8 md:p-10 flex flex-col flex-grow space-y-6">
