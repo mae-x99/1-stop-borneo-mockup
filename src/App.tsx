@@ -41,7 +41,6 @@ import {
 } from 'lucide-react';
 
 import { EBookPage } from './components/EBookPage';
-import { AuthorsPage } from './components/AuthorsPage';
 import { ContactPage } from './components/ContactPage';
 import { FAQPage } from './components/FAQPage';
 import { SabahPage } from './components/SabahPage';
@@ -355,10 +354,6 @@ function App() {
                 Article
                 <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-[1px] bg-brand-highlight transition-all duration-500 group-hover:w-full"></span>
               </a>
-              <a href="#authors" className="hover:text-brand-header transition-all duration-500 relative group py-1">
-                Author's
-                <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-[1px] bg-brand-highlight transition-all duration-500 group-hover:w-full"></span>
-              </a>
               
               {/* About Us Dropdown */}
               <div className="relative group py-1">
@@ -486,7 +481,6 @@ function App() {
 
                 <a href="#e-book" className="text-xs font-bold uppercase tracking-[0.3em] hover:text-brand-highlight transition-colors border-b border-brand-header/5 pb-4">E-BOOK</a>
                 <a href="#article" className="text-xs font-bold uppercase tracking-[0.3em] hover:text-brand-highlight transition-colors border-b border-brand-header/5 pb-4">Article</a>
-                <a href="#authors" className="text-xs font-bold uppercase tracking-[0.3em] hover:text-brand-highlight transition-colors border-b border-brand-header/5 pb-4">Author's</a>
                 
                 <div className="flex flex-col gap-6 border-b border-brand-header/5 pb-4">
                   <button 
@@ -541,8 +535,6 @@ function App() {
 
       {currentHash === '#e-book' ? (
         <EBookPage />
-      ) : currentHash === '#authors' ? (
-        <AuthorsPage />
       ) : currentHash === '#contact' ? (
         <ContactPage />
       ) : currentHash === '#faq' ? (
@@ -983,7 +975,7 @@ function App() {
                       referrerPolicy="no-referrer"
                     />
                     <div className="absolute top-6 right-6 bg-brand-highlight px-4 py-2 rounded-full shadow-lg text-white">
-                      <p className="text-[8px] font-bold uppercase tracking-widest">Book A Tour</p>
+                      <p className="text-[8px] font-bold uppercase tracking-widest">Upcoming Trip</p>
                     </div>
                   </div>
                   <div className="p-8 md:p-10 flex flex-col flex-grow space-y-6">
