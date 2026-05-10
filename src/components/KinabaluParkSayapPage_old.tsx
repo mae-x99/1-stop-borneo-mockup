@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import {
   MapPin, Clock, Calendar, Tent, Home, Phone, Mail, ChevronRight, CheckCircle2, Navigation, Coffee, Star, Sparkles, Map, Info, Compass, HeartHandshake, Sun
@@ -6,60 +6,6 @@ import {
 
 export function KinabaluParkSayapPage() {
   const [activeItinerary, setActiveItinerary] = useState('3d2n');
-  const [activeSection, setActiveSection] = useState('overview');
-  const isScrollingRef = useRef(false);
-  const scrollTimeoutRef = useRef<NodeJS.Timeout | null>(null);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (isScrollingRef.current) return;
-      
-      const sections = ['overview', 'getting-there', 'things-to-do', 'itineraries', 'whats-included'];
-      const scrollPosition = window.scrollY + 200; // offset
-
-      let currentSection = sections[0];
-      for (const section of sections) {
-        const element = document.getElementById(section);
-        if (element) {
-          // get offset top absolute relative to the document
-          const rect = element.getBoundingClientRect();
-          const offsetTop = rect.top + window.scrollY;
-          if (scrollPosition >= offsetTop) {
-            currentSection = section;
-          }
-        }
-      }
-      setActiveSection(currentSection);
-    };
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    handleScroll(); // Initial check
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
-    e.preventDefault();
-    const element = document.getElementById(id);
-    if (element) {
-      isScrollingRef.current = true;
-      setActiveSection(id);
-      
-      const rect = element.getBoundingClientRect();
-      const offsetTop = rect.top + window.scrollY;
-      
-      window.scrollTo({
-        top: offsetTop - 100, // Adjust offset as needed
-        behavior: 'smooth'
-      });
-
-      if (scrollTimeoutRef.current) {
-        clearTimeout(scrollTimeoutRef.current);
-      }
-      scrollTimeoutRef.current = setTimeout(() => {
-        isScrollingRef.current = false;
-      }, 800); // 800ms gives smooth scroll time to finish
-    }
-  };
 
   return (
     <div className="bg-[#f2f7f4] min-h-screen selection:bg-brand-highlight/20 selection:text-brand-header font-sans">
@@ -113,60 +59,12 @@ export function KinabaluParkSayapPage() {
       </section>
 
       {/* Main Content */}
-      <section className="py-24 md:py-32 bg-white relative">
+      <section className="py-32 bg-white">
         <div className="container-custom">
-          <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-12 lg:gap-20">
+          <div className="max-w-4xl mx-auto">
             
-            {/* Sticky Navigation */}
-            <aside className="lg:w-56 shrink-0 hidden lg:block">
-              <div className="sticky top-32 pt-2">
-                <div className="mb-5 relative flex items-center">
-                  <div className="absolute left-[-2px] top-1/2 -translate-y-1/2 w-[6px] h-[6px] rounded-full bg-brand-moss ring-4 ring-brand-moss/20 z-10"></div>
-                  <span className="pl-5 text-sm font-bold text-brand-header m-0">On This Page</span>
-                </div>
-                <nav className="flex flex-col relative before:absolute before:inset-y-0 before:left-0 before:w-[2px] before:bg-brand-header/5">
-                  {[
-                    { id: 'overview', label: 'Overview' },
-                    { id: 'getting-there', label: 'Getting There' },
-                    { id: 'things-to-do', label: 'Things To Do' },
-                    { id: 'itineraries', label: 'Sample Itineraries' },
-                    { id: 'whats-included', label: 'What\'s Included' },
-                  ].map((item) => {
-                    const isActive = activeSection === item.id;
-                    return (
-                      <a
-                        key={item.id}
-                        href={`#${item.id}`}
-                        onClick={(e) => scrollToSection(e, item.id)}
-                        className={`text-sm font-medium transition-all py-3 pl-5 relative outline-none flex items-center ${
-                          isActive
-                            ? 'text-brand-moss'
-                            : 'text-brand-header/50 hover:text-brand-moss hover:bg-brand-moss/5'
-                        }`}
-                      >
-                        {isActive && (
-                          <motion.span
-                            layoutId="activeNavIndicator"
-                            className="absolute left-0 top-0 bottom-0 w-[2px] bg-brand-moss z-10"
-                            initial={false}
-                            transition={{ type: "spring", stiffness: 350, damping: 30 }}
-                          />
-                        )}
-                        <span className={`transition-transform duration-300 ${isActive ? 'translate-x-1' : ''}`}>
-                          {item.label}
-                        </span>
-                      </a>
-                    );
-                  })}
-                </nav>
-              </div>
-            </aside>
-
-            {/* Content Area */}
-            <div className="flex-1 min-w-0">
-            
-              {/* Article Body */}
-              <div id="overview" className="prose prose-lg md:prose-xl max-w-none text-brand-header/80 scroll-mt-28">
+            {/* Article Body */}
+            <div className="prose prose-lg md:prose-xl max-w-none text-brand-header/80">
                 <p className="text-2xl md:text-2xl leading-relaxed mb-8 font-serif text-brand-header">
                   Discover an off-the-beaten-path adventure at another location of Mount Kinabalu accessible through the charming town of Kota Belud, about three hours from Kota Kinabalu. Your stay will be hosted by a welcoming Dusun-ethnic family at a local homestay, offering a genuine cultural experience.
                 </p>
@@ -188,7 +86,7 @@ export function KinabaluParkSayapPage() {
                               referrerPolicy="no-referrer"
                             />
                         </div>
-                        <div className="absolute -bottom-4 -right-2 md:-right-6 bg-[#f8fcf9] p-3 md:p-4 rounded-xl border border-brand-header/5 shadow-lg max-w-[160px] z-20 group-hover:-translate-y-1 transition-transform duration-500">
+                        <div className="absolute -bottom-8 -right-2 md:-right-6 bg-[#f8fcf9] p-3 md:p-4 rounded-xl border border-brand-header/5 shadow-lg max-w-[160px] z-20 group-hover:-translate-y-1 transition-transform duration-500">
                            <div className="w-8 h-8 rounded-full bg-red-300/60 border border-red-400/50 flex items-center justify-center mb-2">
                              <HeartHandshake className="w-4 h-4 text-red-700/60" />
                            </div>
@@ -231,7 +129,7 @@ export function KinabaluParkSayapPage() {
                     </div>
                 </div>
 
-                <div id="getting-there" className="grid grid-cols-1 lg:grid-cols-12 gap-6 mb-16 scroll-mt-28">
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 mb-16">
                   {/* How to get there */}
                   <div className="lg:col-span-7 bg-gradient-to-br from-[#f2f7f4] to-white border border-brand-moss/10 shadow-md hover:shadow-xl hover:-translate-y-1 hover:border-brand-moss/30 transition-all duration-500 rounded-[2rem] p-6 md:p-8 relative overflow-hidden flex flex-col justify-between group">
                     <div className="absolute top-0 right-0 w-64 h-64 bg-brand-moss/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 group-hover:bg-brand-moss/10 transition-colors duration-500"></div>
@@ -371,7 +269,7 @@ export function KinabaluParkSayapPage() {
                   </div>
                 </div>
 
-                <div id="things-to-do" className="mb-16 scroll-mt-28">
+                <div className="mb-16">
                   <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-12">
                     <div>
                       <div className="flex items-center gap-4 mb-4">
@@ -446,7 +344,7 @@ export function KinabaluParkSayapPage() {
                   </div>
                 </div>
 
-                <div id="itineraries" className="mb-16 scroll-mt-28">
+                <div className="mb-16">
                   <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10 text-brand-header">
                     <div>
                       <div className="flex items-center gap-4 mb-3">
@@ -672,7 +570,7 @@ export function KinabaluParkSayapPage() {
                 </div>
 
                 {/* Trip Includes Box */}
-                <div id="whats-included" className="bg-brand-header text-white rounded-[2.5rem] p-8 md:p-10 mt-12 mb-16 shadow-lg relative overflow-hidden border border-[#a7f3d0]/20 group scroll-mt-28">
+                <div className="bg-brand-header text-white rounded-[2.5rem] p-8 md:p-10 mt-12 mb-16 shadow-lg relative overflow-hidden border border-[#a7f3d0]/20 group">
                   <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-10">
                     {/* Left: Included Items */}
                     <div className="lg:col-span-7">
@@ -779,7 +677,6 @@ export function KinabaluParkSayapPage() {
                 </div>
 
               </div>
-            </div>
 
           </div>
         </div>
