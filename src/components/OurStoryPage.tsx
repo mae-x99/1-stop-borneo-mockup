@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { BookOpen, Target, Users, Phone, MapPin, Info, User, X } from 'lucide-react';
+import { BookOpen, Target, Users, Phone, MapPin, Info, User, X, Compass } from 'lucide-react';
 
 const authors = [
   {
@@ -238,167 +238,56 @@ export function OurStoryPage() {
           </div>
         </div>
 
-        {/* 2. Everyone Is Welcome Segment */}
-        <div className="pb-24 relative">
-          
-          {/* Luminous Core Glow */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] md:w-[800px] md:h-[800px] bg-rose-200/20 rounded-full blur-[100px] pointer-events-none" style={{ animationDuration: '15s' }}></div>
-          <div className="absolute top-1/2 right-0 -translate-y-1/2 w-[400px] h-[400px] bg-sky-200/20 rounded-full blur-[100px] pointer-events-none animate-pulse" style={{ animationDuration: '10s' }}></div>
-          
-          <div className="container-custom max-w-7xl mx-auto relative z-10">
-            <motion.div 
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="relative rounded-[3.5rem] p-[3px] group"
-            >
-              {/* Actual Content Container */}
-            <div className="rounded-[calc(3.5rem-3px)] relative overflow-hidden">
-              <div className="text-center max-w-4xl mx-auto mb-16 lg:mb-24">
-                
-                {/* Rainbow Flag */}
-                <svg className="mx-auto block" xmlns="http://www.w3.org/2000/svg" width="300px" height="300px" viewBox="0 0 64 64" aria-hidden="true" role="img" preserveAspectRatio="xMidYMid meet">
 
-                <path fill="#ed4c5c" d="M52.382 5.075C40.137 3.203 24.137 28.036 9.213 20.497c-.582-1.575-1.143-3.158-1.725-4.73C25.077 19.105 33.07-2.995 50.658.345c.584 1.572 1.14 3.156 1.724 4.73">
-                </path>
-
-                <path fill="#ff8736" d="M54.105 9.804C43.762 7.786 22.512 31.453 10.938 25.227c-.585-1.573-1.14-3.157-1.725-4.73C26.802 23.835 34.794 1.734 52.382 5.075c.584 1.572 1.14 3.156 1.723 4.729">
-                </path>
-
-                <path fill="#ffce31" d="M55.83 14.535C45.762 12.744 27.086 38.25 12.662 29.957c-.585-1.573-1.142-3.157-1.725-4.73C28.525 28.566 36.52 6.467 54.105 9.805c.585 1.574 1.142 3.157 1.725 4.73">
-                </path>
-
-                <path fill="#83bf4f" d="M57.556 19.265c-9.711-1.521-31.086 25.813-43.171 15.422c-.584-1.572-1.139-3.157-1.723-4.73c17.585 3.341 25.579-18.762 43.168-15.422c.583 1.573 1.142 3.156 1.726 4.73">
-                </path>
-
-                <path fill="#275fd9" d="M59.278 23.995C48.22 22.161 28.595 50.453 16.109 39.418c-.584-1.574-1.144-3.156-1.725-4.73c17.588 3.338 25.582-18.761 43.171-15.422c.583 1.573 1.141 3.155 1.723 4.729">
-                </path>
-
-                <path fill="#9028e0" d="M61 28.726c-17.583-3.34-25.579 18.761-43.166 15.421c-.584-1.572-1.142-3.156-1.725-4.729c17.588 3.338 25.581-18.762 43.169-15.423c.583 1.575 1.142 3.158 1.722 4.731">
-                </path>
-
-                <g fill="#3e4347">
-
-                  <circle cx="5.168" cy="13.336" r="2.168">
-                  </circle>
-
-                  <path d="M7.04 14.49l-2.56.929L22.186 64h2.896z">
-                  </path>
-
-                  <path d="M3.688 15.602l4.076-1.48l.37 1.017l-4.077 1.48z">
-                  </path>
-
-                </g>
-
-                </svg>
-                <h2 className="text-5xl md:text-6xl lg:text-7xl font-serif text-slate-800 tracking-tight leading-[1.1] mb-8">
-                  Everyone is <span className="italic relative whitespace-nowrap">
-                    welcome here.
-                    <svg className="absolute -bottom-3 left-0 w-full h-4 opacity-80" viewBox="0 0 100 20" preserveAspectRatio="none">
-                      <path d="M0 10 Q 50 20 100 10" fill="transparent" stroke="url(#rainbowGradient)" strokeWidth="4" strokeLinecap="round"/>
-                      <defs>
-                        <linearGradient id="rainbowGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                          <stop offset="0%" stopColor="#fb7185" />
-                          <stop offset="50%" stopColor="#fbbf24" />
-                          <stop offset="100%" stopColor="#34d399" />
-                        </linearGradient>
-                      </defs>
-                    </svg>
-                  </span>
-                </h2>
-                
-                <p className="text-xl font-light text-slate-600 leading-relaxed mt-12 max-w-3xl mx-auto">
-                  Borneo is a stunningly beautiful and varied Island and its population wherever and whenever you meet them are generally very welcoming to LGBTQ+ travelers.
-                </p>
-              </div>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20 relative">
-                {/* Center Divider for Desktop */}
-                <div className="hidden md:block absolute left-1/2 top-4 bottom-4 -translate-x-1/2 w-px bg-gradient-to-b from-transparent via-slate-200 to-transparent"></div>
-                
-                {/* Information Column 1 */}
-                <div className="space-y-6 text-slate-600 font-light text-[17px] leading-relaxed md:pr-4">
-                  <div className="flex items-center gap-4 mb-8">
-                    <div className="w-12 h-12 rounded-full bg-emerald-50 flex items-center justify-center border border-emerald-100">
-                      <div className="w-3 h-3 bg-emerald-400 rounded-full"></div>
-                    </div>
-                    <h4 className="font-serif text-3xl text-slate-800">Ease of Travel</h4>
-                  </div>
-                  <p>
-                    It is very easy to get around especially in Sabah, Sarawak and Brunei. Places like Kota Kinabalu, Kuching, Sepilok, Kinabatangan and Semporna are very used to tourism which adds to the rich tapestry of life. 
-                  </p>
-                  <p>
-                    Travelling around is easy and public transport links are reliable, ensuring a seamless and enjoyable experience.
-                  </p>
-                </div>
-
-                {/* Information Column 2 */}
-                <div className="space-y-6 text-slate-600 font-light text-[17px] leading-relaxed md:pl-4">
-                  <div className="flex items-center gap-4 mb-8">
-                    <div className="w-12 h-12 rounded-full bg-amber-50 flex items-center justify-center border border-amber-100">
-                      <div className="w-3 h-3 bg-amber-400 rounded-full"></div>
-                    </div>
-                    <h4 className="font-serif text-3xl text-slate-800">Good to Know</h4>
-                  </div>
-                  <p>
-                    Kalimantan and Brunei are a bit more conservative but they still welcome everyone and are well used to visitors from all walks of life.
-                  </p>
-                  <div className="relative bg-white p-6 rounded-r-2xl italic text-[15px] shadow-[0_4px_20px_-10px_rgba(0,0,0,0.05)] mt-6">
-
-                  <div className="absolute left-0 top-0 h-full w-1 bg-gradient-to-b from-pink-500 via-yellow-400 via-green-400 to-blue-500 rounded-l-2xl"></div>
-
-                  <div className="pl-4">
-                    "Visitors to these places should be respectful of the populace and to their cultural differences as one should wherever you travel to in the world."
-                  </div>
-
-                </div>
-                </div>
-              </div>
-            </div>
-            </motion.div>
-          </div>
-        </div>
       </section>
 
       {/* Our Objective Section */}
-      <section className="py-32 bg-brand-header text-white relative overflow-hidden">
+      <section className="py-20 bg-brand-header text-white relative overflow-hidden">
         {/* Subtle background pattern/gradient */}
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.05),transparent_50%)]" />
+        <div className="absolute inset-0 bg-gradient-to-br from-brand-moss/40 to-transparent mix-blend-overlay"></div>
+        <div className="absolute inset-0 opacity-[0.02]" style={{ backgroundImage: 'radial-gradient(#ffffff 1px, transparent 1px)', backgroundSize: '32px 32px' }} />
         
         <div className="container-custom max-w-6xl mx-auto relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-20"
-          >
-            <span className="text-brand-highlight font-bold text-[10px] uppercase tracking-[0.4em] mb-4 block">The 4E Framework</span>
-            <h2 className="text-4xl md:text-6xl font-serif mb-6 text-white">Our Objective</h2>
-            <p className="text-white/80 text-lg md:text-xl font-light max-w-2xl mx-auto leading-relaxed">
+          <div className="flex flex-col lg:flex-row gap-8 lg:gap-16 items-start justify-between mb-16">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="max-w-xl"
+            >
+              <span className="text-brand-highlight font-medium text-xs uppercase tracking-widest mb-3 block">The 4E Framework</span>
+              <h2 className="text-3xl md:text-5xl font-serif text-white leading-tight">Our Objective</h2>
+            </motion.div>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1 }}
+              className="text-white/80 text-lg font-light leading-relaxed max-w-lg lg:mt-6"
+            >
               Conserve rainforests by practising a holistic approach to environmental stewardship and community empowerment.
-            </p>
-          </motion.div>
+            </motion.p>
+          </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-10">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
             {objectives.map((obj, index) => (
               <motion.div
                 key={obj.title}
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className="relative bg-white/[0.03] border border-white/5 p-10 lg:p-14 rounded-[2.5rem] backdrop-blur-sm hover:bg-white/[0.06] hover:border-white/10 transition-all duration-500 overflow-hidden group"
+                className="relative bg-white/5 border border-white/10 p-6 md:p-8 rounded-[2rem] backdrop-blur-sm hover:bg-white/10 hover:border-white/20 transition-all duration-300 group"
               >
-                <div className="relative z-10">
-                  <div className="w-16 h-16 rounded-full bg-brand-highlight/20 flex items-center justify-center text-brand-highlight mb-8 group-hover:scale-110 group-hover:bg-brand-highlight/30 transition-all duration-500">
-                    {obj.icon}
-                  </div>
-                  <h3 className="text-3xl font-serif mb-4 text-white">
-                    {obj.title}
-                  </h3>
-                  <p className="text-white/70 text-lg font-light leading-relaxed max-w-md">
-                    {obj.desc}
-                  </p>
+                <div className="w-12 h-12 rounded-2xl bg-white/10 flex items-center justify-center text-white mb-6 group-hover:-translate-y-1 group-hover:bg-brand-highlight group-hover:text-brand-header transition-all duration-300">
+                  {obj.icon}
                 </div>
+                <h3 className="text-xl font-serif mb-3 text-white">
+                  {obj.title}
+                </h3>
+                <p className="text-white/70 text-sm font-light leading-relaxed">
+                  {obj.desc}
+                </p>
               </motion.div>
             ))}
           </div>
@@ -539,59 +428,74 @@ export function OurStoryPage() {
       </section>
 
       {/* Borneo Travel Advisors Section */}
-      <section className="pb-32 bg-[#f8fcf9]">
-        <div className="container-custom max-w-6xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-16 max-w-3xl mx-auto"
-          >
-            <h2 className="text-3xl md:text-5xl font-serif text-brand-header mb-6">Borneo Travel Advisors</h2>
-            <p className="text-brand-header/70 text-lg font-light leading-relaxed">
-              If you are looking for experts on all things Borneo, the following are individuals who are active participants of 1StopBorneo Guide and other Borneo travel groups. They possess extensive knowledge about various travel destinations within Borneo.
-            </p>
-          </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
-            {advisors.map((region, index) => (
+      <section className="py-24 bg-white relative">
+        <div className="container-custom max-w-7xl mx-auto">
+          <div className="bg-[#f0f5f2] rounded-[3rem] p-10 lg:p-16 relative overflow-hidden border border-brand-moss/10 shadow-sm">
+            {/* Background Decorations */}
+            <div className="absolute top-0 right-0 w-96 h-96 bg-white/40 rounded-full blur-[80px] -translate-y-1/2 translate-x-1/3 pointer-events-none"></div>
+            
+            <div className="relative z-10">
               <motion.div
-                key={region.region}
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className="bg-white p-8 rounded-[2rem] shadow-lg border border-brand-header/5"
+                className="text-center mb-16 max-w-3xl mx-auto"
               >
-                <div className="flex items-center gap-3 mb-6 pb-4 border-b border-brand-header/10">
-                  <MapPin className="w-5 h-5 text-brand-highlight" />
-                  <h3 className="text-2xl font-serif text-brand-header">{region.region}</h3>
+                <div className="w-16 h-16 rounded-full bg-white flex items-center justify-center border border-brand-moss/10 mx-auto mb-8 shadow-sm">
+                  <Compass className="w-6 h-6 text-brand-moss" />
                 </div>
-                <div className="space-y-4">
-                  {region.contacts.map((contact, i) => (
-                    <div key={i} className="flex flex-col gap-1">
-                      <span className="text-sm font-bold text-brand-header">{contact.name}</span>
-                      <a href={`tel:${contact.phone.replace(/\s+/g, '')}`} className="flex items-center gap-2 text-brand-header/60 hover:text-brand-highlight transition-colors text-sm">
-                        <Phone className="w-3.5 h-3.5" />
-                        {contact.phone}
-                      </a>
-                    </div>
-                  ))}
-                </div>
+                <h2 className="text-3xl md:text-5xl font-serif text-brand-header mb-6 tracking-tight">Borneo Travel Advisors</h2>
+                <p className="text-brand-header/70 text-lg font-light leading-relaxed">
+                  If you are looking for experts on all things Borneo, the following are individuals who are active participants of 1StopBorneo Guide and other Borneo travel groups. They possess extensive knowledge about various travel destinations within Borneo.
+                </p>
               </motion.div>
-            ))}
-          </div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="bg-brand-highlight/10 border border-brand-highlight/20 p-8 rounded-2xl text-center max-w-4xl mx-auto"
-          >
-            <p className="text-brand-header/80 text-sm md:text-base font-medium leading-relaxed">
-              Do note that these individuals receive numerous inquiries daily. It is advisable to communicate in concise bullet points or brief audio messages as opposed to lengthy texts. As this initiative is charitable in nature, your patience is appreciated.
-            </p>
-          </motion.div>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+                {advisors.map((region, index) => (
+                  <motion.div
+                    key={region.region}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.1 }}
+                    className="bg-white p-8 rounded-[2rem] border border-brand-moss/10 shadow-sm hover:shadow-md hover:border-brand-moss/20 transition-all duration-300 relative group"
+                  >
+                    <div className="flex items-center justify-between mb-8">
+                      <h3 className="text-2xl font-serif text-brand-header">{region.region}</h3>
+                      <div className="w-10 h-10 rounded-full bg-brand-moss/5 flex items-center justify-center group-hover:bg-brand-moss/10 transition-colors">
+                        <MapPin className="w-4 h-4 text-brand-moss" />
+                      </div>
+                    </div>
+                    <div className="space-y-6">
+                      {region.contacts.map((contact, i) => (
+                        <div key={i} className="flex flex-col gap-1.5 group/contact">
+                          <span className="text-[15px] font-medium text-brand-header tracking-wide">{contact.name}</span>
+                          <a href={`tel:${contact.phone.replace(/\s+/g, '')}`} className="flex items-center gap-2 text-brand-header/60 hover:text-brand-highlight font-mono text-sm transition-colors w-fit">
+                            <Phone className="w-3.5 h-3.5" />
+                            {contact.phone}
+                          </a>
+                        </div>
+                      ))}
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="bg-white/60 backdrop-blur-md border border-brand-moss/10 p-6 md:p-8 rounded-[2rem] flex flex-col md:flex-row items-center gap-6 max-w-4xl mx-auto shadow-sm"
+              >
+                <div className="w-12 h-12 rounded-full bg-[#fde68a] flex-shrink-0 flex items-center justify-center">
+                  <Info className="w-5 h-5 text-amber-600" />
+                </div>
+                <p className="text-brand-header/80 text-[15px] leading-relaxed m-0 text-center md:text-left">
+                  <strong className="text-brand-header font-semibold">Please Note:</strong> These individuals receive numerous inquiries daily. It is advisable to communicate in <strong className="font-medium text-brand-header">concise bullet points</strong> or <strong className="font-medium text-brand-header">brief audio messages</strong> as opposed to lengthy texts. As this initiative is charitable in nature, your patience is appreciated.
+                </p>
+              </motion.div>
+            </div>
+          </div>
         </div>
       </section>
     </div>
