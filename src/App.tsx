@@ -601,7 +601,7 @@ function App() {
         <section className="py-24 relative overflow-hidden bg-gradient-to-b from-brand-light to-[#e8f0eb]">
           <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
             <div className="absolute -top-[20%] -right-[10%] w-[50%] h-[50%] rounded-full bg-brand-moss/5 blur-3xl" />
-            <div className="absolute top-[60%] -left-[10%] w-[40%] h-[40%] rounded-full bg-brand-highlight/5 blur-3xl" />
+            {/* <div className="absolute top-[60%] -left-[10%] w-[50%] h-[50%] rounded-full bg-brand-moss/5 blur-3xl" /> */}
           </div>
           <div className="container-custom relative z-10">
             <div className="max-w-3xl mx-auto text-center">

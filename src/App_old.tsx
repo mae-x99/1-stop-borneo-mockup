@@ -50,7 +50,7 @@ import { BruneiPage } from './components/BruneiPage';
 import { OurStoryPage } from './components/OurStoryPage';
 import { ArticlePage } from './components/ArticlePage';
 import { KinabaluParkSayapPage } from './components/KinabaluParkSayapPage';
-import { KotaBeludPage } from './components/KotaBeludPage';
+import { KotaBeludPage } from './components/KotaBeludPage_new';
 import BorneoMap from './components/BorneoMap';
 
 const mapRegions = [

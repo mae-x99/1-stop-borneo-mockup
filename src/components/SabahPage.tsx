@@ -243,19 +243,7 @@ export function SabahPage() {
                                     </span>
                                   </button>
                                   
-                                  {isDistrictActive && districtDestinations.length > 1 && (
-                                    <div className="flex flex-col pl-4 gap-2 py-2 mb-2 relative before:absolute before:left-[-1px] before:top-2 before:bottom-2 before:w-[1px] before:bg-brand-highlight/20 border-l border-brand-header/5">
-                                      {districtDestinations.map(d => (
-                                        <a 
-                                          key={d.title}
-                                          href={d.link || '#'}
-                                          className="text-[11px] text-brand-header/60 hover:text-brand-highlight transition-colors py-1 pl-2 block"
-                                        >
-                                          • {d.title}
-                                        </a>
-                                      ))}
-                                    </div>
-                                  )}
+                                  
                                 </div>
                               );
                             })}
