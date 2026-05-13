@@ -175,6 +175,18 @@ const BorneoMap: React.FC = () => {
     }
   }, []);
 
+  const handleRegionClick = (id: string) => {
+    let hash = '#';
+    if (id.startsWith('my-sa') || id.startsWith('my-la')) hash = '#sabah';
+    else if (id.startsWith('my-sk')) hash = '#sarawak';
+    else if (id.startsWith('id-')) hash = '#kalimantan';
+    else if (id.startsWith('bn-')) hash = '#brunei';
+    
+    if (hash !== '#') {
+      window.location.hash = hash;
+    }
+  };
+
   const activateRegion = (id: string) => {
     setActiveRegion(id);
     setShowCursor(true);
@@ -257,6 +269,7 @@ const BorneoMap: React.FC = () => {
                     }}
                     onMouseEnter={() => activateRegion(region.id)}
                     onMouseLeave={deactivateRegion}
+                    onClick={() => handleRegionClick(region.id)}
                   />
                 ))}
               </svg>
@@ -313,6 +326,7 @@ const BorneoMap: React.FC = () => {
                             className="legend-row"
                             onMouseEnter={() => activateRegionLegend(region.id)}
                             onMouseLeave={deactivateRegionLegend}
+                            onClick={() => handleRegionClick(region.id)}
                             data-target={`region-${region.id}`}
                             style={{
                               ...styles.legendRow,
