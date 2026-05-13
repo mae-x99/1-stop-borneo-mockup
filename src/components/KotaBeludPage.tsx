@@ -61,14 +61,14 @@ export function KotaBeludPage() {
     {
       title: "Kota Belud Overview",
       category: "District Guide",
-      image: "/Sabah.jpg",
+      image: "Kota-Belud.jpg",
       excerpt: "The 'Cowboy Town of the East', famous for its Sunday market (Tamu) and gateway to Mantanani Islands.",
       link: "#"
     },
     {
       title: "Kinabalu Park Sayap",
       category: "Conservation Trip",
-      image: "/Kinabalu-Park-Sayap-1.jpg",
+      image: "Kinabalu-Park-Sayap-1.jpg",
       excerpt: "Discover an off-the-beaten-path adventure hosted by a welcoming Dusun-ethnic family. Explore montane birds, frogs, and insects.",
       link: "#kinabalu-park-sayap"
     },
